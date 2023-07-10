@@ -1,6 +1,6 @@
 import numpy as np
 import jax.numpy as jnp
-import ODEs
+import odes
 from scipy.integrate import ode
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
@@ -21,7 +21,7 @@ class var_env():
 
         self.set_seed(seed)
         # Constants
-        self.solver = ode(ODEs.field2D)
+        self.solver = ode(odes.field2D)
         self.solver.set_integrator('dop853', rtol=1e-3, atol=1e-6)            #Use the scipy ODE integrator (default:dop853)
 
         #self.x0 = -np.sqrt(2)/2*np.ones(N_MC)    # Initial state for double-well
@@ -296,7 +296,7 @@ class fixed_env():
 
         self.set_seed(seed)
         # Constants
-        self.solver = ode(ODEs.field2D)
+        self.solver = ode(odes.field2D)
         self.solver.set_integrator('dop853', rtol=1e-3, atol=1e-6)            #Use the scipy ODE integrator (default:dop853)
 
         self.r0 = self.rng.rayleigh(scale=np.pi/8, size=N_MC)
