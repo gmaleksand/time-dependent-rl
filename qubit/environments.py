@@ -171,7 +171,7 @@ class qubit_env():
     def Render_rot(self,label,trajectory_numbers_to_show =[0]):
         b = Bloch()
         b.make_sphere()
-        directory,epoch,rewards = label
+        epoch,rewards = label
 
         thetas = self.state_history[:,:,0]
         phis = self.state_history[:,:,1]+ (np.expand_dims(np.arange(self.n_time_steps+1),axis=1)/self.n_time_steps)*2.5*np.pi
@@ -185,7 +185,7 @@ class qubit_env():
         b.clear()
 
 
-    def plot_decay_probability(self, directory):
+    def plot_decay_probability(self):
         n = 40
         thetamesh, phimesh = np.mgrid[slice(0, np.pi+np.pi/n, np.pi/n),slice(-np.pi, np.pi+2*np.pi/n, 2*np.pi/n)]
         n += 1 # the array created is in fact (n+1)x(n+1)
@@ -201,6 +201,5 @@ class qubit_env():
         plt.xlabel('$theta$')
         plt.ylabel('$phi$')
         #Save plot
-        file = '/dissipation.png'
-        plt.savefig(directory+file)
+        plt.savefig('dissipation.png')
         plt.close('all')

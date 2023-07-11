@@ -8,7 +8,7 @@ from matplotlib.patches import Ellipse
 
 
 
-class flexible_env():
+class flex_env():
     
     def __init__(self, 
                 N_MC=128,

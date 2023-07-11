@@ -183,8 +183,6 @@ while epoch < N_epochs:
 
     start_time = time.time()
 
-    if epoch%250 == 0:                          #Simulation backup
-        save_total_state()
 
     nnparams = get_params(opt_state)        #Get the current policy in policy matrix
 
