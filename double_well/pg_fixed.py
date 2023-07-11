@@ -7,8 +7,6 @@ import time
 from matplotlib import pyplot as plt
 import os
 from environments import *
-import pickle
-from openpyxl import load_workbook
 
 #Initial parameters
 N_epochs = 2002
